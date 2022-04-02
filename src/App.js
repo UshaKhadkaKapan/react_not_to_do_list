@@ -1,10 +1,22 @@
+import { Container } from "react-bootstrap";
 import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import Title from "./components/Title";
+import AddForm from "./form/AddForm";
+import TaskList from "./tasklist/TaskList";
 
 function App() {
   return (
-    <div>
-      <h1>Hello World</h1>
+    <div className="wrapper">
+      <Container>
+        {/* title comp */}
+        <Title />
+        {/* from comp */}
+        <AddForm />
+        <hr />
+
+        {/* task list component */}
+        <TaskList />
+      </Container>
     </div>
   );
 }
