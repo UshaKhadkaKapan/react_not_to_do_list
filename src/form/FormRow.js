@@ -7,7 +7,7 @@ const FormRow = () => {
       <td>
         <Form.Check type="checkbox" label="Check me out" />
       </td>
-      <td>Task Name</td>
+      <td>Bad Name</td>
       <td>Hour</td>
       <td className="text-end">
         <Button variant="danger">
