@@ -5,6 +5,7 @@ import Title from "./components/Title";
 import AddForm from "./form/AddForm";
 import TaskList from "./tasklist/TaskList";
 import { Row, Col } from "react-bootstrap";
+import BadList from "./tasklist/BadList";
 
 function App() {
   // state to store the task liste
@@ -29,7 +30,15 @@ function App() {
           <Col md="6">
             <TaskList />
           </Col>
-          <Col md="6"></Col>
+          <Col md="6">
+            <BadList />
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <h3>The total hours is: 15hrs</h3>
+          </Col>
         </Row>
       </Container>
     </div>
