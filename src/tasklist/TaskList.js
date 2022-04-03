@@ -1,7 +1,7 @@
 import React from "react";
-import { Col, Row, Form, Table, Button } from "react-bootstrap";
+import { Form, Table, Button } from "react-bootstrap";
 
-const TaskList = ({ taskLists }) => {
+const TaskList = ({ taskLists, removeFromTaskList, shiftToTheBadList }) => {
   return (
     <div>
       <h2 className="text-center">Task List</h2>
@@ -11,17 +11,17 @@ const TaskList = ({ taskLists }) => {
       <Table striped bordered hover>
         <tbody>
           {taskLists.map((task, i) => (
-            <tr>
+            <tr key={i}>
               <td>
                 <Form.Check type="checkbox" label="Check me out" />
               </td>
               <td>{task.task}</td>
               <td>{task.hr}Hour</td>
               <td className="text-end">
-                <Button variant="danger">
+                <Button variant="danger" onClick={() => removeFromTaskList(i)}>
                   <i className="fa-solid fa-trash-can"></i>
                 </Button>{" "}
-                <Button variant="primary">
+                <Button variant="primary" onClick={() => shiftToTheBadList(i)}>
                   <i className="fa-solid fa-arrow-right-long"></i>
                 </Button>
               </td>
