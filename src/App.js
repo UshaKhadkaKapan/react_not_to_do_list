@@ -4,6 +4,7 @@ import "./App.css";
 import Title from "./components/Title";
 import AddForm from "./form/AddForm";
 import TaskList from "./tasklist/TaskList";
+import { Row, Col } from "react-bootstrap";
 
 function App() {
   // state to store the task liste
@@ -12,6 +13,7 @@ function App() {
 
   const addToTaskList = (taskObj) => {
     setTaskLists([...taskLists, taskObj]);
+    console.log(taskLists);
   };
   return (
     <div className="wrapper">
@@ -23,7 +25,12 @@ function App() {
         <hr />
 
         {/* task list component */}
-        <TaskList />
+        <Row>
+          <Col md="6">
+            <TaskList />
+          </Col>
+          <Col md="6"></Col>
+        </Row>
       </Container>
     </div>
   );
