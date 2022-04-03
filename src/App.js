@@ -12,10 +12,12 @@ function App() {
 
   const [taskLists, setTaskLists] = useState([]);
 
-  const addToTaskList = (taskObj) => {
-    setTaskLists([...taskLists, taskObj]);
-    console.log(taskLists);
+  const addToTaskList = (newInfo) => {
+    setTaskLists([...taskLists, newInfo]);
   };
+
+  console.log(taskLists);
+
   return (
     <div className="wrapper">
       <Container>
@@ -28,7 +30,7 @@ function App() {
         {/* task list component */}
         <Row>
           <Col md="6">
-            <TaskList />
+            <TaskList taskLists={taskLists} />
           </Col>
           <Col md="6">
             <BadList />
