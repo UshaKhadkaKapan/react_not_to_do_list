@@ -41,7 +41,7 @@ const AddForm = ({ addToTaskList }) => {
           <Col md={3}>
             <Form.Control
               name="hr"
-              placeholder="Hour"
+              placeholder="Hour..."
               onChange={handleOnChange}
               type="number"
               required

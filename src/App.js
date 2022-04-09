@@ -15,6 +15,8 @@ function App() {
 
   const addToTaskList = (newInfo) => {
     setTaskLists([...taskLists, newInfo]);
+    console.log([...taskLists]);
+    console.log(newInfo);
   };
 
   // remove item from the item list
@@ -34,6 +36,19 @@ function App() {
     // get the item that to be shifted
     // add the item in the bad ListGrou
     // premove the item from the task list
+  };
+
+  const removeFromBadList = (i) => {
+    const badListFilter = badLists.filter((item, index) => index !== i);
+    setBadLists(badListFilter);
+  };
+
+  const shiftToTheTaskList = (i) => {
+    const item = taskLists[i];
+
+    setTaskLists([...taskLists, item]);
+
+    removeFromBadList(i);
   };
 
   console.log(taskLists);
@@ -57,7 +72,11 @@ function App() {
             />
           </Col>
           <Col md="6">
-            <BadList badLists={badLists} />
+            <BadList
+              badLists={badLists}
+              shiftToTheTaskList={shiftToTheTaskList}
+              removeFromBadList={removeFromBadList}
+            />
           </Col>
         </Row>
 
