@@ -44,7 +44,7 @@ function App() {
   };
 
   const shiftToTheTaskList = (i) => {
-    const item = taskLists[i];
+    const item = badLists[i];
 
     setTaskLists([...taskLists, item]);
 
