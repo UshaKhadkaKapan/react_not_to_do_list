@@ -7,17 +7,12 @@ import TaskList from "./tasklist/TaskList";
 import { Row, Col } from "react-bootstrap";
 import BadList from "./tasklist/BadList";
 
+const weeklyHrs = 24 * 7;
 function App() {
   // state to store the task liste
 
   const [taskLists, setTaskLists] = useState([]);
   const [badLists, setBadLists] = useState([]);
-
-  const addToTaskList = (newInfo) => {
-    setTaskLists([...taskLists, newInfo]);
-    console.log([...taskLists]);
-    console.log(newInfo);
-  };
 
   // remove item from the item list
   const removeFromTaskList = (i) => {
@@ -52,6 +47,18 @@ function App() {
   };
 
   console.log(taskLists);
+  // + changes string to Number in ES6
+  const taskListTotalHr = taskLists.reduce((acc, item) => acc + +item.hr, 0);
+  const badListTotalHr = badLists.reduce((acc, item) => acc + +item.hr, 0);
+  const ttlHrs = taskListTotalHr + badListTotalHr;
+
+  const addToTaskList = (newInfo) => {
+    if (ttlHrs + newInfo.hr <= weeklyHrs) {
+      setTaskLists([...taskLists, newInfo]);
+    } else {
+      alert("Mate its wrong");
+    }
+  };
 
   return (
     <div className="wrapper">
@@ -76,13 +83,14 @@ function App() {
               badLists={badLists}
               shiftToTheTaskList={shiftToTheTaskList}
               removeFromBadList={removeFromBadList}
+              badListTotalHr={badListTotalHr}
             />
           </Col>
         </Row>
 
         <Row>
           <Col>
-            <h3>The total hours is: 15hrs</h3>
+            <h3>The total hours is: {ttlHrs}hrs</h3>
           </Col>
         </Row>
       </Container>
