@@ -1,4 +1,4 @@
 .wrapper {
   min-height: 100vh;
-  background: rgba(172, 230, 210, 0.479);
+  background-image: linear-gradient(to right, #8360c3, #2ebf91);
 }

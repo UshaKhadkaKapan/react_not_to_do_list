@@ -43,9 +43,7 @@ const BadList = ({
           })}
         </tbody>
       </Table>
-      <h4 className="mt-5 text-danger">
-        You could have saved:{badListTotalHr}hrs
-      </h4>
+      <h4 className="mt-5">You could have saved:{badListTotalHr}hrs</h4>
     </div>
   );
 };

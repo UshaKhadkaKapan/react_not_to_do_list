@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, ListGroup } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import "./App.css";
 import Title from "./components/Title";
 import AddForm from "./form/AddForm";
@@ -19,7 +19,7 @@ function App() {
   };
   // remove item from the item list
   const removeFromTaskList = (i) => {
-    if (deletaTask) {
+    if (deletaTask()) {
       const filteredArg = taskLists.filter((item, index) => index !== i);
       setTaskLists(filteredArg);
     }
@@ -39,7 +39,7 @@ function App() {
   };
 
   const removeFromBadList = (i) => {
-    if (deletaTask) {
+    if (deletaTask()) {
       const badListFilter = badLists.filter((item, index) => index !== i);
       setBadLists(badListFilter);
     }
